@@ -29,7 +29,7 @@ def scrape(role,place, jobtype):
 
 
     # Scrape the pages:
-    for j in range(10,70,10):  # make 400 at the end
+    for j in range(10,120,10):  # make 400 at the end
 
         #Creating the new link
         url = url_page+str(j)
