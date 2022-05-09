@@ -241,7 +241,7 @@ if selected == 'Home':
 
     if st.session_state.button_search:
         if st.session_state['role']=='':
-            st.write(''' ## Please insert the job title ''')
+            st.write(''' ### Please insert the job title ''')
         else:
             # Scrape the Job Listings
             data = scrape(st.session_state['role'],st.session_state['place'], st.session_state['jobtype'])
