@@ -240,26 +240,29 @@ if selected == 'Home':
             st.session_state.button_search = 'fulltime'
 
     if st.session_state.button_search:
-        # Scrape the Job Listings
-        data = scrape(st.session_state['role'],st.session_state['place'], st.session_state['jobtype'])
-        # Do the screening of the postings
-        results = job_screening(data)
+        if st.session_state['role']==None:
+            st.write(''' Please insert the job title ''')
+        else:
+            # Scrape the Job Listings
+            data = scrape(st.session_state['role'],st.session_state['place'], st.session_state['jobtype'])
+            # Do the screening of the postings
+            results = job_screening(data)
 
-        # Creating the filters to sort
-        option_list = list(results.columns[ :-1])
-        sort_columns = st.multiselect('Filter the results', option_list)
-        #button_filter = st.button('Filter Jobs'
+            # Creating the filters to sort
+            option_list = list(results.columns[ :-1])
+            sort_columns = st.multiselect('Filter the results', option_list)
+            #button_filter = st.button('Filter Jobs'
 
-        results = results.sort_values(sort_columns) 
+            results = results.sort_values(sort_columns) 
 
-        # Creating a see_Job column with hyperlinks
-        results['See_Job'] = results['Job_Link'].apply(make_clickable)
-        # Print the table
-        st.write(HTML(results.drop('Job_Link',axis=1).to_html(escape=False)), unsafe_allow_html=True)
+            # Creating a see_Job column with hyperlinks
+            results['See_Job'] = results['Job_Link'].apply(make_clickable)
+            # Print the table
+            st.write(HTML(results.drop('Job_Link',axis=1).to_html(escape=False)), unsafe_allow_html=True)
 
 
-        # Creating the download link
-        st.markdown(filedownload(results), unsafe_allow_html=True) 
+            # Creating the download link
+            st.markdown(filedownload(results), unsafe_allow_html=True) 
         
         st.session_state.button_search = False 
 
