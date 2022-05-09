@@ -260,6 +260,8 @@ if selected == 'Home':
 
         # Creating the download link
         st.markdown(filedownload(results), unsafe_allow_html=True) 
+        
+        st.session_state.button_search = False 
 
 ### Creating the second tab
 elif selected == 'Visa Providers':
