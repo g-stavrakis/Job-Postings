@@ -240,7 +240,7 @@ if selected == 'Home':
             st.session_state.button_search = 'fulltime'
 
     if st.session_state.button_search:
-        if st.session_state['role']==None:
+        if st.session_state['role']=='':
             st.write(''' Please insert the job title ''')
         else:
             # Scrape the Job Listings
