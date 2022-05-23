@@ -83,9 +83,12 @@ def scrape(role,place, jobtype):
             Date_Posted.append(date)
 
             # Links for positions
-            link = table2[i].find_all('a')[2].get('href')
-            link = url_posting + link.split('&')[1].split('=')[1]
-            Job_Link.append(link)
+            try:
+                link = table2[i].find_all('a')[2].get('href')
+                link = url_posting + link.split('&')[1].split('=')[1]
+                Job_Link.append(link)
+            except:
+                Job_Link.append('-')
 
         Posting_Data_Page = pd.DataFrame({'Job_Titles':Job_Titles,'Companies': Companies,'Locations': Locations,
                                      'Salaries': Salaries,'Short_Description':Short_Description,
