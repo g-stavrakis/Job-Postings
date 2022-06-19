@@ -161,7 +161,7 @@ if selected == 'Home':
 
     st.write("""
 
-    # Vaccancies for Visa providers
+    # Vacancies for Visa providers
 
     Here you can search for Job posting only for companies that are eligible to provide visa to their candidates.
 
