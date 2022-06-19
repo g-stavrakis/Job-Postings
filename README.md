@@ -1,6 +1,6 @@
 <img src="laptop_search.jpg" width="900" height="500">
 
-# Vaccancies for Visa providers
+# Vacancies for Visa providers
 ### Here you can search for job postings only for companies that are eligible to provide visa to their candidates.
 
 ## What this app does
